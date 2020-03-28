@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+  application:
+    build: .
+  sut:
+    image: alpine:latest
+    depends_on:
+      - application
+    command: /tmp/run_tests.sh
+    volumes:
+      - "./run_tests.sh:/tmp/run_tests.sh:ro"

@@ -44,12 +44,15 @@ RUN apk add --no-cache --update \
     php7-session \
     php7-simplexml \
     php7-tokenizer \
-    php7-xdebug \
+    php7-pecl-xdebug \
     php7-xml \
     php7-xmlwriter \
     php7-zip \
     php7-zlib \
     php7-zmq
+
+# Enable Xdebug
+RUN echo "zend_extension=xdebug.so" > /etc/php7/conf.d/xdebug.ini
 
 # Install composer from the official image
 COPY --from=composer /usr/bin/composer /usr/bin/composer

@@ -48,6 +48,9 @@ FROM andisis/nginx-php-fpm:latest
 # Laravel use public folder for document root
 ENV SERVER_ROOT=/var/www/html/public
 
+# Copy project
+ADD . /var/www/html
+
 # Change workdir permission
 RUN chown -R www-data.www-data /var/www/html && \
     chmod -R 755 /var/www/html && \

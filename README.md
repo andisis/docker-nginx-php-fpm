@@ -10,6 +10,10 @@ Docker image with PHP-FPM & Nginx, build on [Alpine Linux](http://www.alpinelinu
 
 ## Usage
 
+Pull this image
+
+    docker pull andisis/nginx-php-fpm
+
 Start the Docker container:
 
     docker run -d -p 80:80 andisis/nginx-php-fpm
@@ -20,7 +24,7 @@ Or mount your own code to be served by PHP-FPM & Nginx
 
     docker run -p 80:80 -v <your_project>:/var/www/html andisis/nginx-php-fpm
 
-## Configuration
+## With custom configuration
 
 In [config](https://github.com/andisis/docker-nginx-php-fpm/tree/master/config) folder you'll find the default configuration files for Nginx, PHP and PHP-FPM.
 If you want to extend or customize that you can do so by mounting a configuration file in the correct folder;

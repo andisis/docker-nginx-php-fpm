@@ -3,9 +3,9 @@
 Docker image with PHP-FPM & Nginx, build on [Alpine Linux](http://www.alpinelinux.org/).
 
 ![Docker Builds](https://github.com/andisis/docker-nginx-php-fpm/workflows/Docker%20Builds/badge.svg)
-![Alpine Linux 3.11](https://img.shields.io/badge/Alpine%20Linux-3.11-0E567D?style=flat-square&logo=Alpine%20Linux)
-![php 7.3](https://img.shields.io/badge/php-7.3-7377AD?style=flat-square&logo=PHP)
-![nginx 1.16](https://img.shields.io/badge/nginx-1.16-0D924B?style=flat-square&logo=NGINX)
+![Alpine Linux 3.13](https://img.shields.io/badge/Alpine%20Linux-3.13-0E567D?style=flat-square&logo=Alpine%20Linux)
+![php 7.4](https://img.shields.io/badge/php-7.4-7377AD?style=flat-square&logo=PHP)
+![nginx 1.18](https://img.shields.io/badge/nginx-1.18-0D924B?style=flat-square&logo=NGINX)
 ![GitHub](https://img.shields.io/github/license/andisis/docker-nginx-php-fpm?style=flat-square)
 
 ## Usage

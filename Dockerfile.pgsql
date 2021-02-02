@@ -53,8 +53,10 @@ RUN apk add --no-cache --update \
     php7-pgsql \
     php7-pdo_pgsql
 
-# Enable Xdebug
+# Enable Extension
 RUN echo "zend_extension=xdebug.so" > /etc/php7/conf.d/xdebug.ini
+RUN echo "extension=pgsql.so" > /etc/php7/conf.d/pgsql.ini
+RUN echo "extension=pdo_pgsql.so" > /etc/php7/conf.d/pdo_pgsql.ini
 
 # Install composer from the official image
 COPY --from=composer /usr/bin/composer /usr/bin/composer

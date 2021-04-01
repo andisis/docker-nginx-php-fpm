@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.13
 
 LABEL maintainer="Andi Siswanto <andisis92@gmail.com> | https://andisiswanto.com"
 

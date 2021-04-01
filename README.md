@@ -69,3 +69,44 @@ RUN chown -R www-data.www-data /var/www/html && \
 # Run db migration if you need
 # RUN php artisan migrate
 ```
+
+If you want to add other packages like MongoDB, MySQL or PostgreSQL, just create your own image like this
+
+```dockerfile
+# Example if use this image for the laravel project
+FROM andisis/nginx-php-fpm:latest
+
+# Add alpine 3.6 repository to install mongodb
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/main' >> /etc/apk/repositories && \
+    echo 'http://dl-cdn.alpinelinux.org/alpine/v3.6/community' >> /etc/apk/repositories
+
+# Install mongodb / mysql / postgresql
+RUN apk add --no-cache --update \
+    mongodb=3.4.4-r0 \
+    php7-mysqli \
+    php7-pdo_mysql
+    php7-pgsql \
+    php7-pdo_pgsql \
+    php7-mongodb
+
+
+# Laravel use public folder for document root
+ENV SERVER_ROOT=/var/www/html/public
+
+# Copy project
+ADD . /var/www/html
+
+# Change workdir permission
+RUN chown -R www-data.www-data /var/www/html && \
+    chmod -R 755 /var/www/html && \
+    chmod -R 777 /var/www/html/storage && \
+    # Install library using composer
+    composer install && \
+    # Copy environments (Alternatively you can copy from static .env files you have been created)
+    cp /var/www/html/.env.example /var/www/html/.env && \
+    # Generate application key
+    php artisan key:generate
+
+# Run db migration if you need
+# RUN php artisan migrate
+```
